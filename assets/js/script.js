@@ -234,10 +234,27 @@ var saveTasks = function(){
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+var loadTasks = function () {
+    // get task items from local storage
+    var savedTasks = localStorage.getItem("tasks");
+    if (!savedTasks) {
+        return false;
+      }
+      //console.log("Saved tasks found!");
+      // else, load up saved tasks
+    
+      // parse into array of objects
+      savedTasks = JSON.parse(savedTasks);
+      console.log (savedTasks);
+    // Convert tasks from the string format back into array of objects
+
+    //iterate through a tasks array and create task elements on the page from it
+}
+
 formEl.addEventListener("submit", taskFormHandler);
 pageContentEl.addEventListener("click", taskButtonHandler);
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
-
+loadTasks (); 
 // var formEl = document.querySelector("#task-form");
 // var tasksToDoEl = document.querySelector("#tasks-to-do");
 
